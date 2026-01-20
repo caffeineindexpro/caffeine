@@ -1,0 +1,23 @@
+name: Google Indexing
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: # Allows manual testing
+
+jobs:
+  indexing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Google Indexing API Action
+        uses: robingenz/action-google-indexing@v1.0.2
+        with:
+          # Fix 1: Use 'siteUrl' (the Action requires a single URL or Sitemap URL)
+          siteUrl: https://www.eticketdeal.com/sitemap.xml
+          
+          # Fix 2: Use 'gcpServiceAccountKey'
+          gcpServiceAccountKey: ${{ secrets.GOOGLE_JSON_KEY }}
