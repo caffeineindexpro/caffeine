@@ -17,7 +17,7 @@ jobs:
         uses: robingenz/action-google-indexing@v1.0.2
         with:
           # Fix 1: Use 'siteUrl' (the Action requires a single URL or Sitemap URL)
-          siteUrl: https://www.eticketdeal.com/sitemap.xml
+          siteUrl: https://www.eticketdeal.com/
           
           # Fix 2: Use 'gcpServiceAccountKey'
           gcpServiceAccountKey: ${{ secrets.GOOGLE_JSON_KEY }}
